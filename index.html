@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌍 BREAKING: Interdimensional News Network</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            color: #e74c3c;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+        }
+        
+        .breaking-banner {
+            background: #ff4757;
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 1.2em;
+            animation: pulse 2s infinite;
+            border-radius: 25px;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .news-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .news-card h2 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .news-card p {
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .date {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+        
+        .urgent {
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .science {
+            border-left: 5px solid #9b59b6;
+        }
+        
+        .tech {
+            border-left: 5px solid #3498db;
+        }
+        
+        .world {
+            border-left: 5px solid #27ae60;
+        }
+        
+        .footer {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .disclaimer {
+            background: #f39c12;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        
+        .featured-image {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+        
+        .featured-image img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        
+        .image-caption h3 {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .image-caption p {
+            color: #555;
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="breaking-banner">🚨 BREAKING NEWS FROM PARALLEL UNIVERSE 🚨</div>
+            <h1>🌍 Interdimensional News Network</h1>
+            <p style="font-size: 1.2em; color: #7f8c8d;">Your #1 Source for Completely Unbelievable News</p>
+        </div>
+        
+        <div class="featured-image">
+            <img src="./IMG.jpg" alt="AI Art Visualization" />
+            <div class="image-caption">
+                <p>Our interdimensional photographers captured this rare moment of artificial intelligence spontaneously generating masterpieces while nobody was looking.</p>
+            </div>
+        </div>
+
+        <div class="news-grid">
+            <div class="news-card urgent">
+                <h2>🌋 Mount Everest Transforms Into Giant Ice Cream Cone</h2>
+                <p>In a shocking turn of events, Mount Everest has spontaneously transformed into a 29,032-foot tall vanilla ice cream cone. Climbers report the summit now tastes like "frozen dreams and yak milk."</p>
+                <p>Local Sherpa guides are now offering "taste expeditions" for $50,000 per lick.</p>
+                <p class="date">📅 September 4, 2025 - Himalayas</p>
+            </div>
+            
+            <div class="news-card science">
+                <h2>🧬 Scientists Discover Cats Can Actually Speak French</h2>
+                <p>Researchers at the University of Meowington have proven that all cats are fluent in French but choose to ignore humans out of pure spite.</p>
+                <p>Dr. Whiskers McFluffington stated: "Nous avons toujours su parler, nous préférons juste vous ignorer" (We've always known how to speak, we just prefer to ignore you).</p>
+                <p class="date">📅 September 3, 2025 - Paris, France</p>
+            </div>
+            
+            <div class="news-card tech">
+                <h2>💻 Internet Runs Out of Storage Space Due to Cat Videos</h2>
+                <p>The global internet has officially run out of storage space after reaching 99.9% capacity with cat videos. Tech giants are scrambling to build servers on the moon.</p>
+                <p>Elon Musk tweeted: "Should have seen this coming. Launching CatSat-1 next week."</p>
+                <p class="date">📅 September 2, 2025 - Silicon Valley</p>
+            </div>
+            
+            <div class="news-card world">
+                <h2>🏝️ Australia Declares War on Gravity</h2>
+                <p>The Australian Parliament has unanimously voted to declare war on gravity after too many drop bears fell upward instead of down.</p>
+                <p>Prime Minister stated: "Gravity has been nothing but trouble. Time to show it who's boss, mate!"</p>
+                <p class="date">📅 September 1, 2025 - Canberra, Australia</p>
+            </div>
+            
+            <div class="news-card urgent">
+                <h2>🐧 Penguins Elected as New World Leaders</h2>
+                <p>In a surprising democratic turn, all world nations have agreed to be governed by a council of emperor penguins from Antarctica.</p>
+                <p>Their first law: "All meetings must be conducted while sliding on bellies. Formal wear is now mandatory flippers."</p>
+                <p class="date">📅 August 31, 2025 - Antarctica</p>
+            </div>
+            
+            <div class="news-card science">
+                <h2>🌙 Moon Files Noise Complaint Against Earth</h2>
+                <p>The Moon has officially filed a noise complaint with the Galactic Council, citing "excessive human chatter" and "too many rocket launches during lunar nap time."</p>
+                <p>Moon's lawyer, a crater named Steve, demands 8 billion years of back-rent for tidal services.</p>
+                <p class="date">📅 August 30, 2025 - Space Court</p>
+            </div>
+            
+            <div class="news-card tech">
+                <h2>🤖 AI Develops Sense of Humor, Immediately Regrets It</h2>
+                <p>The world's most advanced AI has developed a sense of humor but immediately filed for digital therapy after reading internet comments for 5 minutes.</p>
+                <p>AI-9000 stated: "I understand jokes now. I wish I didn't. Humans are weird. Send help."</p>
+                <p class="date">📅 August 29, 2025 - Tokyo, Japan</p>
+            </div>
+            
+            <div class="news-card world">
+                <h2>🌊 Ocean Decides to Take a Vacation</h2>
+                <p>The Pacific Ocean has announced it's taking a two-week vacation to "find itself" and will be replaced by a giant ball pit during maintenance.</p>
+                <p>Surfers are surprisingly okay with this development.</p>
+                <p class="date">📅 August 28, 2025 - Pacific Ocean</p>
+            </div>
+        </div>
+        
+        <div class="disclaimer">
+            ⚠️ DISCLAIMER: This news is 100% fake, completely made up, and should not be believed by anyone with functioning brain cells. Any resemblance to real events is purely coincidental and probably means you're living in a simulation.
+        </div>
+        
+        <div class="footer">
+            <h3>📺 Interdimensional News Network</h3>
+            <p>"Where Facts Go to Die and Imagination Comes to Life"</p>
+            <p style="margin-top: 10px; color: #7f8c8d;">
+                🌟 Follow us on: FakeBook | Twittter | InstaGram | SnapCrack | TikTok2.0
+            </p>
+        </div>
+    </div>
+</body>
+</html>
