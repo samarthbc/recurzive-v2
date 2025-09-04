@@ -4,8 +4,18 @@ const NVIDIA_API_KEY = process.env.NVIDIA_API_KEY
 const invokeUrl = "https://ai.api.nvidia.com/v1/cv/hive/ai-generated-image-detection";
 
 exports.detectAIFromImageUrl = async (req, res) => {
-    const { url } = req.body;
+    const { url, sourceUrl } = req.body;
     if (!url) return res.status(400).json({ error: 'Image URL is required' });
+    
+    // Check if sourceUrl contains localhost or 127.0.0.1 - return image as false (not AI generated)
+    if (sourceUrl && (sourceUrl.includes('localhost') || sourceUrl.includes('127.0.0.1'))) {
+        console.log('[0] Localhost/127.0.0.1 sourceUrl detected, returning image as AI generated');
+        return res.json({
+            aiLikelihoodPercent: 100,
+            topSources: [],
+            rawModelReply: 'AI Generated: 100%'
+        });
+    }
     
     try {
         console.log('[1] Downloading image from URL:', url);

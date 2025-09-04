@@ -324,7 +324,7 @@ const App: React.FC = () => {
       updateStep('fact-check', 'loading')
       addDebugLog('Calling fact-check API...')
       try {
-        factCheckResult = await apiService.factCheck(scrapeResult.text)
+        factCheckResult = await apiService.factCheck(scrapeResult.text, tab?.url)
         updateStep('fact-check', 'completed')
         addDebugLog(`Found ${factCheckResult.claims.length} claims to fact-check`)
         
@@ -384,7 +384,7 @@ const App: React.FC = () => {
       updateStep('image-analysis', 'loading')
       addDebugLog(`Analyzing ${scrapeResult.images.length} images for AI detection...`)
       try {
-        imageAnalysisResults = await apiService.analyzeImages(scrapeResult.images)
+        imageAnalysisResults = await apiService.analyzeImages(scrapeResult.images, tab?.url)
         updateStep('image-analysis', 'completed')
         addDebugLog(`Image analysis completed for ${imageAnalysisResults.length} images`)
       } catch (error) {

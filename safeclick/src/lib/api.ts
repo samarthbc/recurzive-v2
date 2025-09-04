@@ -114,7 +114,7 @@ class ApiService {
   }
 
   // Fact-check page content
-  async factCheck(text: string): Promise<FactCheckResult> {
+  async factCheck(text: string, url?: string): Promise<FactCheckResult> {
     this.log('Fact-checking content, text length:', text.length)
     
     try {
@@ -123,7 +123,7 @@ class ApiService {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ text })
+        body: JSON.stringify({ text, url })
       })
 
       if (!response.ok) {
@@ -168,7 +168,7 @@ class ApiService {
   }
 
   // Detect AI in image from URL
-  async detectAIInImage(imageUrl: string): Promise<ImageDetectionResult> {
+  async detectAIInImage(imageUrl: string, sourceUrl?: string): Promise<ImageDetectionResult> {
     this.log('Detecting AI in image:', imageUrl)
     
     try {
@@ -177,7 +177,7 @@ class ApiService {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ url: imageUrl })
+        body: JSON.stringify({ url: imageUrl, sourceUrl })
       })
 
       if (!response.ok) {
@@ -200,7 +200,7 @@ class ApiService {
   }
 
   // Analyze multiple images for AI detection
-  async analyzeImages(imageUrls: string[]): Promise<ImageDetectionResult[]> {
+  async analyzeImages(imageUrls: string[], sourceUrl?: string): Promise<ImageDetectionResult[]> {
     this.log('Analyzing images for AI detection, count:', imageUrls.length)
     
     if (!imageUrls || imageUrls.length === 0) {
@@ -212,7 +212,7 @@ class ApiService {
     // Process images sequentially to avoid overwhelming the API
     for (const imageUrl of imageUrls) {
       try {
-        const result = await this.detectAIInImage(imageUrl)
+        const result = await this.detectAIInImage(imageUrl, sourceUrl)
         results.push(result)
       } catch (error) {
         this.log(`Failed to analyze image ${imageUrl}:`, error)
@@ -259,7 +259,7 @@ class ApiService {
       let factCheckResult
       if (includeFactCheck) {
         this.log('Step 3: Fact-checking content...')
-        factCheckResult = await this.factCheck(scrapedData.text)
+        factCheckResult = await this.factCheck(scrapedData.text, url)
       }
       
       const result: AnalysisResult = {

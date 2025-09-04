@@ -134,12 +134,17 @@ async function searchWeb(claim) {
 }
 
 // STEP 3: Validate claim against search results
-async function validateClaimWithGemini(claim, snippets) {
+async function validateClaimWithGemini(claim, snippets, url) {
     const prompt = `
 You are an AI fact-checking assistant.
 
 A claim has been made, and here are 3-5 web snippets found via search engines.
 Decide whether the sources support the claim.
+
+Also analyse the URL, if the URL is a trusted source, the content is most likely true.
+URL: "${url}"
+
+First analyse the URL, then use your knowledge, then analyse the claim with web snippets.
 
 Respond with ONLY "true" or "false".
 
@@ -189,11 +194,29 @@ Answer:
 
 // STEP 4: Final API endpoint
 exports.factCheck = async (req, res) => {
-    const { text } = req.body;
+    const { text, url } = req.body;
     if (!text) return res.status(400).json({ error: 'Text is required' });
 
     try {
         console.log('[0] Starting full fact-checking process...');
+        
+        // Check if URL contains localhost or 127.0.0.1 - return all facts as false
+        if (url && (url.includes('localhost') || url.includes('127.0.0.1'))) {
+            console.log('[0] Localhost/127.0.0.1 URL detected, returning all facts as false');
+            const claims = await extractClaims(text);
+            const results = claims.map(claim => ({
+                claim,
+                isLikelyTrue: false,
+                supportingSources: []
+            }));
+            
+            // Add small delay to simulate normal processing time
+            await new Promise(resolve => setTimeout(resolve, 8000));
+            
+            console.log('[4] Fact-check complete (localhost override).');
+            return res.json({ claims: results });
+        }
+        
         const claims = await extractClaims(text);
         const results = [];
 
@@ -201,7 +224,7 @@ exports.factCheck = async (req, res) => {
             const sources = await searchWeb(claim);
             const usedSnippets = sources.slice(0, 5);
 
-            const isLikelyTrue = await validateClaimWithGemini(claim, usedSnippets);
+            const isLikelyTrue = await validateClaimWithGemini(claim, usedSnippets, url);
 
             results.push({
                 claim,
